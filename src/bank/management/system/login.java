@@ -46,8 +46,6 @@ public class login extends JFrame implements ActionListener {
         tf.setFont(new Font("Arial",Font.BOLD,14));
         add(tf);
 
-
-
         label3=new JLabel("CARD:");
         label3.setFont(new Font("ralway",Font.BOLD,28));
         label3.setForeground(Color.white);
@@ -95,8 +93,10 @@ public class login extends JFrame implements ActionListener {
        add(image2);
 
 
+       //Below is a Frame adjustment code
          setSize(850,480);
          setLocation(450,200);
+
          //whatever stuff u want to display in your frame keep the code above setVisible means setVisible should be placed at the end.
          setVisible(true);
 
