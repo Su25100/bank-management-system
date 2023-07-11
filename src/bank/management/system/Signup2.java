@@ -40,7 +40,7 @@ public class Signup2 extends JFrame implements ActionListener {
         lb3.setFont(new Font("Raleway", Font.BOLD, 18));
         add(lb3);
 
-        String []religion={"Hindu","Muslim","sikh","Catholicism","Buddhism","Other"};
+        String []religion={"","Hindu","Muslim","sikh","Catholicism","Buddhism","Other"};
         comboBox=new JComboBox(religion);
         comboBox.setBackground(Color.WHITE);
         comboBox.setFont(new Font ("Raleway",Font.BOLD,14));
@@ -52,7 +52,7 @@ public class Signup2 extends JFrame implements ActionListener {
         lb4.setFont(new Font("Raleway", Font.BOLD, 18));
         add(lb4);
 
-        String []category={"General","OBC","SC","ST","Other"};
+        String []category={"","General","OBC","SC","ST","Other"};
         comboBox2 = new JComboBox(category);
         //comboBox.setBackground(new Color(252,208,76));  Have replace this code with setbackground
         comboBox2.setBackground(Color.WHITE);
@@ -65,7 +65,7 @@ public class Signup2 extends JFrame implements ActionListener {
         lb5.setFont(new Font("Raleway", Font.BOLD, 18));
         add(lb5);
 
-        String []income={"NULL","<1,50,000","<2,50,000","5,00,000","upto 10,00,000","Above 10,00,000"};
+        String []income={"","<1,50,000","<2,50,000","5,00,000","upto 10,00,000","Above 10,00,000"};
         comboBox3 = new JComboBox(income);
         //comboBox.setBackground(new Color(252,208,76));  Have replace this code with setbackground
         comboBox3.setBackground(Color.WHITE);
@@ -78,7 +78,7 @@ public class Signup2 extends JFrame implements ActionListener {
         lb6.setFont(new Font("Raleway", Font.BOLD, 18));
         add(lb6);
 
-        String [] eduqual={"Non-graduate","graduate","postgraduate","Doctorate","other"};
+        String [] eduqual={"","Non-graduate","graduate","postgraduate","Doctorate","other"};
         comboBox4 = new JComboBox(eduqual);
         //comboBox.setBackground(new Color(252,208,76));   Have replace this code with setbackground
         comboBox4.setBackground(Color.WHITE);
@@ -91,7 +91,7 @@ public class Signup2 extends JFrame implements ActionListener {
         lb7.setFont(new Font("Raleway", Font.BOLD, 18));
         add(lb7);
 
-        String []occ={"Salaried","self-employed","Buisness","Student","Retired","Others"};
+        String []occ={"","Salaried","self-employed","Buisness","Student","Retired","Others"};
         comboBox5 = new JComboBox(occ);
         //comboBox.setBackground(new Color(252,208,76));   Have replace this code with setbackground
         comboBox5.setBackground(Color.WHITE);
@@ -217,7 +217,7 @@ public class Signup2 extends JFrame implements ActionListener {
          }
 
          try{
-             if(pancard.getText().equals(" ") || adhar.getText().equals(" ")){
+             if(pancard.getText().equals("") || adhar.getText().equals("")){
 
                  JOptionPane.showMessageDialog(null,"Fill all the fields");
              }
@@ -227,7 +227,7 @@ public class Signup2 extends JFrame implements ActionListener {
                  String q="insert into Signup2 values('"+formno+"','"+rel+"','"+categ+"','"+inc+"','"+edu+"','"+occ+"','"+pan+"','"+adhr+"','"+sc+"','"+eacc+"')";
                  c1.statement.executeUpdate(q);
 
-                 new Signup3();
+                 new Signup3(formno);
                  setVisible(false);
              }
          }

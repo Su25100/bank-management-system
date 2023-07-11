@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class Signup3 extends JFrame implements ActionListener {
 
@@ -13,7 +14,10 @@ public class Signup3 extends JFrame implements ActionListener {
     JButton bt1,bt2;
     String formno;
 
-    Signup3(){
+    Signup3(String formno){
+
+        this.formno=formno;
+
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/Bank.jpg"));
         Image i2 = i1.getImage().getScaledInstance(110, 100, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -21,7 +25,6 @@ public class Signup3 extends JFrame implements ActionListener {
         image.setBounds(150, 5, 140, 100);
         add(image);
 
-        this.formno=formno;
 
         JLabel lb1 = new JLabel(("Page 3:"));
         lb1.setBounds(320, 40, 400, 40);
@@ -59,7 +62,7 @@ public class Signup3 extends JFrame implements ActionListener {
         r4=new JRadioButton("Current Account");
         r4.setFont(new Font("Raleway",Font.BOLD,16));
         r4.setBackground(new Color(215,252,252));
-        r4.setBounds(100,220,250,30);
+        r4.setBounds(100,220,200,30);
         add(r4);
 
         ButtonGroup bg = new ButtonGroup();
@@ -144,6 +147,7 @@ public class Signup3 extends JFrame implements ActionListener {
         c6.setBackground(new Color(215,252,252));
         add(c6);
 
+
         c7 = new JCheckBox("I hereby declares that the above entered details correct to the best of my knowledge.",true);
         c7.setBounds(100,600,550,30);
         c7.setFont(new Font("Raleway",Font.BOLD,13));
@@ -156,24 +160,29 @@ public class Signup3 extends JFrame implements ActionListener {
         lb12.setFont(new Font("Raleway", Font.BOLD, 18));
         add(lb12);
 
+
         JLabel lb13 = new JLabel((formno));
         lb13.setBounds(700, 10, 60, 30);
         lb13.setFont(new Font("Raleway", Font.BOLD, 18));
         add(lb13);
 
+
+
         bt1 = new JButton("Submit");
         bt1.setBounds(300, 650, 100, 30);
         bt1.setBackground(Color.black);
         bt1.setForeground(Color.white);
-        //bt1.addActionListener(this);
+        bt1.addActionListener(this);
         add(bt1);
+
 
         bt2 = new JButton("Cancel");
         bt2.setBounds(440, 650, 100, 30);
         bt2.setBackground(Color.black);
         bt2.setForeground(Color.white);
-        //bt1.addActionListener(this);
+        bt2.addActionListener(this);
         add(bt2);
+
 
 
         setLayout(null);
@@ -182,15 +191,78 @@ public class Signup3 extends JFrame implements ActionListener {
         getContentPane().setBackground(new Color(215,252,252));
         setVisible(true);
 
-
-
     }
 
 
     @Override
     public  void actionPerformed(ActionEvent e){
+     String atype=null;
+     if(r1.isSelected()){
+         atype="saving account";
+     }
+     else if(r2.isSelected()){
+         atype="recurring Account";
+     }
+     else if(r3.isSelected()){
+         atype="Fixed account";
+     }
+     else if(r4.isSelected()){
+         atype="current account";
+     }
+
+     //for generating pin using Random class
+     Random ran=new Random();
+     long first7=(ran.nextLong()% 90000000L) + 1409963000000000L ;
+     String cardno=""+ Math.abs(first7);
+
+     long first3=(ran.nextLong() % 9000L)+ 1000L;
+     String pin="" + Math.abs(first3);
+
+     String sr="";
+     if(c1.isSelected()){
+         sr=sr+"ATM CARD";
+     }
+     else if (c2.isSelected()) {
+         sr=sr+"Internet Banking";
+     }
+     else if (c3.isSelected()) {
+         sr=sr+"Mobile Banking";
+     } else if (c4.isSelected()) {
+         sr=sr+"E-statement";
+     } else if (c5.isSelected()) {
+         sr+="EMAIL alerts";
+     }
+     else if(c6.isSelected())
+     {
+         sr+="cheque book";
+     }
+
+     try{
+         if(e.getSource()==bt1) {
+             if (atype.equals("")) {
+                 JOptionPane.showMessageDialog(null, "Fill all the fields");
+             } else {
+                 Connt con1 = new Connt();
+                 String q = "insert into Signup3 values('" + formno + "','" + atype + "','" + cardno + "','" + pin + "','" + sr + "')";
+                 con1.statement.executeUpdate(q);
+
+                 String q1 = "insert into login values('" + formno + "','" + cardno + "','" + pin + "')";
+                 con1.statement.executeUpdate(q1);
+
+                 JOptionPane.showMessageDialog(null,"Card No:"+cardno+"\n Pin:"+pin+" ");
+                setVisible(false);
+             }
+         }
+
+         else if(e.getSource()==bt2){
+            System.exit(0);
+         }
 
 
+     }
+     catch(Exception E){
+         E.printStackTrace();
+     }
 
     }
 
@@ -198,6 +270,7 @@ public class Signup3 extends JFrame implements ActionListener {
 
     public static void main(String[]args){
 
-        new Signup3();
+        new Signup3("");
+
     }
 }
