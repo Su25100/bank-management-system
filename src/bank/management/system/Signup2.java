@@ -158,8 +158,8 @@ public class Signup2 extends JFrame implements ActionListener {
         add(rb4);
 
         ButtonGroup bg1 = new ButtonGroup();
-        bg.add(rb3);
-        bg.add(rb4);
+        bg1.add(rb3);
+        bg1.add(rb4);
 
         JLabel lb12 = new JLabel(("Form No:"));
         lb12.setBounds(650, 10, 80, 30);
@@ -191,6 +191,49 @@ public class Signup2 extends JFrame implements ActionListener {
 
     @Override
     public  void actionPerformed(ActionEvent e){
+         String rel=(String)comboBox.getSelectedItem();
+         String categ=(String)comboBox2.getSelectedItem();
+         String  inc=(String)comboBox3.getSelectedItem();
+         String edu=(String)comboBox4.getSelectedItem();
+         String occ=(String)comboBox5.getSelectedItem();
+
+         String pan=pancard.getText();
+         String adhr=adhar.getText();
+
+         String  sc=" ";
+         if(rb1.isSelected()){
+             sc="Yes";
+         }
+         else{
+             sc="No";
+         }
+
+         String eacc=" ";
+         if(rb2.isSelected()){
+             eacc="Yes";
+         }
+         else{
+             eacc="No";
+         }
+
+         try{
+             if(pancard.getText().equals(" ") || adhar.getText().equals(" ")){
+
+                 JOptionPane.showMessageDialog(null,"Fill all the fields");
+             }
+
+             else{
+                 Connt c1=new Connt();
+                 String q="insert into Signup2 values('"+formno+"','"+rel+"','"+categ+"','"+inc+"','"+edu+"','"+occ+"','"+pan+"','"+adhr+"','"+sc+"','"+eacc+"')";
+                 c1.statement.executeUpdate(q);
+
+                 new Signup3();
+                 setVisible(false);
+             }
+         }
+         catch(Exception E){
+             E.printStackTrace();
+         }
 
 
 
