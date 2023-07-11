@@ -188,8 +188,8 @@ public class Signup extends JFrame implements ActionListener {
 
         JButton bt = new JButton("Next");
         bt.setBounds(620, 710, 90, 30);
-        bt.setBackground(Color.BLACK);
-        bt.setForeground(Color.WHITE);
+        bt.setBackground(Color.white);
+        bt.setForeground(Color.BLACK);
         bt.addActionListener(this);
         add(bt);
 
@@ -262,7 +262,7 @@ public class Signup extends JFrame implements ActionListener {
                 con1.statement = statement;
 
                 con1.statement.executeUpdate(q);
-                new Signup2();
+                new Signup2(first);
                 setVisible(false);
             }
         } catch (Exception E) {
