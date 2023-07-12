@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="145db0ee-16e2-492f-a5b4-9f958a8eefe8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/BalanceEnquiry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/Pinchange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/Withdrwl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bank/management/system/main_C.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bank/management/system/Deposit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bank/management/system/Deposit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bank/management/system/Signup2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bank/management/system/Signup2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/bank/management/system/Signup3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bank/management/system/Signup3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bank/management/system/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/bank/management/system/login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +53,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="bank.management.system" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Signup" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="bank.management.system.Signup" />
@@ -118,7 +129,28 @@
       <option name="project" value="LOCAL" />
       <updated>1689079012738</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="signup2 done with db connectivity">
+      <created>1689084024563</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689084024563</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Till page3 done with db connectivity.">
+      <created>1689101482147</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689101482147</updated>
+    </task>
+    <task id="LOCAL-00007" summary="deposit page updated">
+      <created>1689162131813</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689162131813</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -149,7 +181,10 @@
     <MESSAGE value="signup page updated" />
     <MESSAGE value="signup page ready with dbase connectivity" />
     <MESSAGE value="signup3 page design done" />
-    <option name="LAST_COMMIT_MESSAGE" value="signup3 page design done" />
+    <MESSAGE value="signup2 done with db connectivity" />
+    <MESSAGE value="Till page3 done with db connectivity." />
+    <MESSAGE value="deposit page updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="deposit page updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

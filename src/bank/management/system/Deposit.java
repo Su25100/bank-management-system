@@ -31,6 +31,7 @@ public class Deposit extends JFrame implements ActionListener {
         l1.setBounds(460,180,400,35);
         l3.add(l1);
 
+
         tf1=new JTextField();
         tf1.setBounds(460,230,320,25);
         tf1.setFont(new Font("Raleway",Font.BOLD,22));
@@ -77,6 +78,7 @@ public class Deposit extends JFrame implements ActionListener {
                     c1.statement.executeUpdate("insert into bank values('"+pin+"','"+date+"','Deposit','"+amount+"')");
                     JOptionPane.showMessageDialog(null,"Rs."+amount+" Deposited successfully");
                     setVisible(false);
+                    new main_C(pin);
                 }
             } else if (e.getSource()==bt2) {
                 setVisible(false);

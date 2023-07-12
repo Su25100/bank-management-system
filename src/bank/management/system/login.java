@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class login extends JFrame implements ActionListener {
    JLabel label1,label2,label3;
@@ -96,32 +97,47 @@ public class login extends JFrame implements ActionListener {
        //Below is a Frame adjustment code
          setSize(850,480);
          setLocation(450,200);
+         setUndecorated(true);             //this line is to remove maximise,minimise,or exit button in the frame
 
          //whatever stuff u want to display in your frame keep the code above setVisible means setVisible should be placed at the end.
          setVisible(true);
 
-
-   }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         try{
             if(e.getSource()==bt1){
+                Connt c1=new Connt();
+                String cardno = tf.getText();
+                String pin = pf3.getText();
+                String q="Select * from login where card_number='"+cardno+"' and pin='"+pin+"' ";
+                ResultSet resultset= c1.statement.executeQuery(q);
+                if(resultset.next()){
+                    setVisible(false);
+                    new main_C(pin);
+                }
 
+                else{
+                    JOptionPane.showMessageDialog(null,"Incorrect card number or pin");
+                }
 
             } else if(e.getSource()==bt3) {
                 tf.setText("");
                 pf3.setText("");
 
-            } else if(e.getSource()==bt2) {
-                
+            } else if(e.getSource()==bt2) {  //button2 -signup
+
+                new Signup();
+
+                setVisible(false);
+
             }
-
-
         }
-        catch (Exception E){
 
+        catch (Exception E){
+            E.printStackTrace();
         }
     }
 
