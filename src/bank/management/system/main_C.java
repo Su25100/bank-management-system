@@ -95,6 +95,9 @@ public class main_C extends JFrame implements ActionListener {
    } else if (e.getSource()==b4) {
        new BalanceEnquiry(pin);
         setVisible(false);
+   } else if (e.getSource()==b3) {
+       new Pinchange(pin);
+       setVisible(false);
    }
 
     }
